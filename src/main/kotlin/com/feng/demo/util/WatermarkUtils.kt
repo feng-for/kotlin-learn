@@ -7,8 +7,7 @@ import org.opencv.highgui.HighGui.waitKey
 import org.opencv.imgcodecs.Imgcodecs
 import org.opencv.imgcodecs.Imgcodecs.imwrite
 import org.opencv.imgproc.Imgproc
-import org.opencv.imgproc.Imgproc.COLOR_RGB2GRAY
-import org.opencv.imgproc.Imgproc.cvtColor
+import org.opencv.imgproc.Imgproc.*
 
 
 object WatermarkUtils {
@@ -82,8 +81,18 @@ object WatermarkUtils {
             }
         }
     }
-    private fun coverMean() {
+    fun coverMean() {
+        // 读取带有水印的图片
+        val s = "C:\\Users\\Fengzhiwei\\Pictures\\Screenshots\\111.jpg"
+        val image = loadImage(s)
+        // 创建蒙版
+        val mask = Mat()
+        threshold(image, mask, 200.0, 255.0, THRESH_BINARY_INV)
+        // 去除水印
+        val result = Mat()
 
+        // 保存结果
+        imwrite("C:\\Users\\Fengzhiwei\\Pictures\\Screenshots\\result.jpg", result)
     }
 }
 
