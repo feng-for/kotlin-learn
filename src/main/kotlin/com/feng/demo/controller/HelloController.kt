@@ -43,3 +43,13 @@ class HelloController {
         return "your name is $userDO"
     }
 }
+
+operator fun String.unaryPlus(){
+    if(this.isEmpty()) return
+    println("----------------")
+    println(this)
+}
+
+fun main(){
+    + ("2")
+}

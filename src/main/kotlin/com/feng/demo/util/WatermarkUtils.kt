@@ -14,7 +14,7 @@ import org.opencv.photo.Photo
 
 object WatermarkUtils {
 
-    private const val path = "/Users/wei/Downloads/8629.jpg_wh300.jpg"
+    private const val path = "C:\\Users\\Fengzhiwei\\Pictures\\Screenshots\\111.jpg"
 
     private const val d = "/Users/wei/Downloads"
 
@@ -147,7 +147,23 @@ object WatermarkUtils {
     }
 }
 
+val pos: (String, String) -> Int = { k, v -> k.length + v.length}
+
+val in1 = pos("a", "b")
+
+val strings: (String) -> Int = { it.length }
+
+val int = strings("ab")
+// fun strings(it: String): Int {
+//     return it.length
+// }
+
+fun gk(fu: () -> String): String = fu()
+
+fun a(a: String, b: String, pos: (String, String) -> Int): Int = pos(a, b)
+
 fun main(){
+    gk { "asfasf" }
     // OpenCV .......
     OpenCV.loadShared()
     // WatermarkUtils.testOpenCV()
